@@ -2,21 +2,16 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :info
-    validates :category
-    validates :status
-    validates :shipping_fee
-    validates :prefecture
-    validates :scheduled_delivery
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
     validates :image
   end
 
   with_options numericality: { other_than: 1, message: "can't be blank"}  do
-    validates :category
-    validates :status
-    validates :shipping_fee
-    validates :prefecture
-    validates :scheduled_delivery
+    validates :category_id
+    validates :status_id
+    validates :shipping_fee_id
+    validates :prefecture_id
+    validates :scheduled_delivery_id
   end
 
   belongs_to :user
