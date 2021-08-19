@@ -2,7 +2,12 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :info
-    validates :price
+    validates :category
+    validates :status
+    validates :shipping_fee
+    validates :prefecture
+    validates :scheduled_delivery
+    validates :price, format: { with: /\A[0-9]+\z/ }
     validates :image
   end
 
