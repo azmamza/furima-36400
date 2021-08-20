@@ -39,32 +39,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Info can't be blank")
       end
 
-      it 'カテゴリーが空では出品できないこと' do
-        @item.category_id = '1'
+      it 'カテゴリーのidが１の選択肢を選択すると出品できないこと' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
-      it '商品の状態が空では出品できないこと' do
-        @item.status_id = ''
+      it '商品の状態のidが１の選択肢を選択すると出品できないこと' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
 
-      it '配送料の負担が空では出品できないこと' do
-        @item.shipping_fee_id = ''
+      it '配送料の負担のidが１の選択肢を選択すると出品できないこと' do
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
       end
 
-      it '発送元の地域が空では出品できないこと' do
-        @item.prefecture_id  = ''
+      it '発送元の地域のidが１の選択肢を選択すると出品できないこと' do
+        @item.prefecture_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
-      it '発送までの日数が空では出品できないこと' do
-        @item.scheduled_delivery_id  = ''
+      it '発送までの日数のidが１の選択肢を選択すると出品できないこと' do
+        @item.scheduled_delivery_id  = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
       end
