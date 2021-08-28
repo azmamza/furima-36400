@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_order, only: [:index, :show]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -52,4 +53,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  def set_order
+    @order = Order.includes(:item)
+  end
 end
