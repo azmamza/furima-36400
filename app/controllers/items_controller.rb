@@ -53,8 +53,7 @@ class ItemsController < ApplicationController
   end
 
   def sold_out_item
-    item = Item.find(params[:id])
-    redirect_to root_path if item.order.present?
+    redirect_to root_path if @item.order.present?
   end
 
 end
