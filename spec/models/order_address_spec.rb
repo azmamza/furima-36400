@@ -31,13 +31,13 @@ RSpec.describe OrderAddress, type: :model do
       end
 
       it '郵便番号が「3桁ハイフン4桁」以外では購入できないこと' do
-        @order_address.postal_code  = 1234-567
+        @order_address.postal_code  = '1234-567'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code is invalid")
       end
 
       it '郵便番号がハイフンなしでは購入できないこと' do
-        @order_address.postal_code  = 1234567
+        @order_address.postal_code  = '1234567'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code is invalid")
       end
@@ -85,12 +85,12 @@ RSpec.describe OrderAddress, type: :model do
       end 
 
       it '電話番号が９桁以下では購入できないこと' do
-        @order_address.phone_number  = 012012345
+        @order_address.phone_number  = '012012345'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include ("Phone number is invalid")
       end
 
-      it '電話番号が１２桁以下では購入できないこと' do
+      it '電話番号が１２桁以上では購入できないこと' do
         @order_address.phone_number  = '090123456789'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include ("Phone number is invalid")
