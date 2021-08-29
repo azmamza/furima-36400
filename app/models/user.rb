@@ -19,7 +19,7 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
 
-  with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i } do
+  with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
     validates :password
     validates :password_confirmation
   end
